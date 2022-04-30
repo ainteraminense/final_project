@@ -1,0 +1,35 @@
+<div class="container-fluid mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+      <p>Not a user? <a routerLink="../register">Register here</a></p>
+      <form #registrationFormLogin="ngForm">
+        <div class="mb-3">
+          <label for="txtEmailLogin" class="form-label">Email:</label>
+          <input type="text" id="txtEmailLogin" name="txtEmailLogin" class="form-control"
+                 [(ngModel)]="user.email" #txtEmailLogin="ngModel" required
+                 pattern="^[A-Za-z]+\@[A-Za-z]+\.[A-Za-z]+$">
+          <div *ngIf="txtEmailLogin.invalid && (txtEmailLogin.dirty ||txtEmailLogin.touched)">
+            <small *ngIf="txtEmailLogin.errors['required']" class="text-danger">Email required</small>
+            <small *ngIf="txtEmailLogin.errors['pattern']" class="text-danger">You must enter a valid email</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="txtPasswordLogin" class="form-label">Password:</label>
+          <input type="text" id="txtPasswordLogin" name="txtPasswordLogin" class="form-control"
+                 [(ngModel)]="user.password" #txtPasswordLogin="ngModel" required>
+          <div *ngIf="txtPasswordLogin.invalid && (txtPasswordLogin.dirty ||txtPasswordLogin.touched)">
+            <small *ngIf="txtPasswordLogin.errors['required']" class="text-danger">Email required</small>
+          </div>
+        </div>
+        <button [disabled]="registrationFormLogin.invalid" class="btn btn-primary" name="btnLogin"
+                id="btnLogin" (click)="btnLogin_click(user)">Login
+        </button>
+      </form>
+    </div>
+    <div class="card-footer">
+    </div>
+  </div>
+</div>

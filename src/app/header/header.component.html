@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home">{{title}}</a>
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link nav-item" routerLink="todolist">ToDo List</a>
+        <a class="nav-link nav-item" routerLink="add">Add Task</a>
+        <a class="nav-link nav-item" routerLink="developerInfo">Developer Information</a>
+      </div>
+      <div class="navbar-nav navbar-right ms-auto">
+        <a class="nav-link nav-item btn btn-outline-primary" routerLink="login">Login</a>
+        <a class="nav-link nav-item btn btn-outline-warning" routerLink="register">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>

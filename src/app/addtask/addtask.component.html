@@ -1,0 +1,40 @@
+<div class="container-fluid mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+      <form #addForm="ngForm">
+        <div class="form-group">
+          <label for="txtTaskName" class="form-label">Task Name</label>
+          <input type="text" id="txtTaskName" name="txtTaskName" class="form-control"
+                 [(ngModel)]="todo.taskName">
+        </div>
+        <div class="form-group">
+          <label for="cmbStatus" class="form-label">Status</label>
+          <!--<input type="text" id="txtStatus" name="txtStatus" class="form-control"
+                 [(ngModel)]="todo.status" value="{{status.status}}">-->
+          <select id="cmbStatus" name="cmbStatus" [(ngModel)]="todo.status">
+            <option value="{{status[0].status}}" selected>{{status[0].status}}</option>
+            <option value="{{status[1].status}}">{{status[1].status}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dtDateCreated" class="form-label">Date Created</label>
+          <input type="date" id="dtDateCreated" name="dtDateCreated" class="form-control"
+          [(ngModel)]="todo.dateCreated">
+        </div>
+        <div class="form-group">
+          <label for="dtDateCompleted" class="form-label">Date Completed</label>
+          <input type="date" id="dtDateCompleted" name="dtDateCompleted" class="form-control mb-4"
+                 [(ngModel)]="todo.dateCompleted">
+          <button type="button" id="btnAdd" name="btnAdd" class="col-2 btn btn-primary"
+                  (click)="btnAdd_Click()"><span class="glyphicon glyphicon-plus-sign"></span></button>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+    </div>
+  </div>
+</div>

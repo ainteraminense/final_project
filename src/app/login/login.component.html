@@ -1,0 +1,63 @@
+<div class="container-fluid mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+      <p>Already a user? <a routerLink="../login">Click here to login</a></p>
+      <form #registrationForm="ngForm">
+        <div class="mb-3">
+          <label for="txtFirstName" class="form-label">First Name:</label>
+          <input type="text" id="txtFirstName" name="txtFirstName" class="form-control"
+[(ngModel)]="user.firstName" #txtFirstName="ngModel" required minlength="2">
+          <div *ngIf="txtFirstName.invalid && (txtFirstName.dirty ||txtFirstName.touched)">
+            <small *ngIf="txtFirstName.errors['required']" class="text-danger">First Name is required</small>
+            <small *ngIf="txtFirstName.errors['minlength']" class="text-danger">First Name must be at least
+            2 characters long</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="txtLastName" class="form-label">Last Name:</label>
+          <input type="text" id="txtLastName" name="txtLastName" class="form-control"
+                 [(ngModel)]="user.lastName" #txtLastName="ngModel" required minlength="2">
+          <div *ngIf="txtLastName.invalid && (txtLastName.dirty ||txtLastName.touched)">
+            <small *ngIf="txtLastName.errors['required']" class="text-danger">Last Name is required</small>
+            <small *ngIf="txtLastName.errors['minlength']" class="text-danger">Last Name must be at least
+              2 characters long</small>
+          </div>
+        </div>
+          <div class="mb-3">
+            <label for="txtEmail" class="form-label">Email:</label>
+            <input type="text" id="txtEmail" name="txtEmail" class="form-control"
+                   [(ngModel)]="user.email" #txtEmail="ngModel" required
+                   pattern="^[A-Za-z]+\@[A-Za-z]+\.[A-Za-z]+$">
+            <div *ngIf="txtEmail.invalid && (txtEmail.dirty ||txtEmail.touched)">
+              <small *ngIf="txtEmail.errors['required']" class="text-danger">Email required</small>
+              <small *ngIf="txtEmail.errors['pattern']" class="text-danger">You must enter a valid email</small>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label for="txtPassword" class="form-label">Password:</label>
+          <input type="text" id="txtPassword" name="txtPassword" class="form-control"
+                 [(ngModel)]="user.password" #txtPassword="ngModel" required>
+          <div *ngIf="txtPassword.invalid && (txtPassword.dirty ||txtPassword.touched)">
+            <small *ngIf="txtPassword.errors['required']" class="text-danger">Email required</small>
+          </div>
+        </div>
+        <!--<div class="mb-3">
+          <label for="txtConfirmPassword" class="form-label">Confirm Password:</label>
+          <input type="text" id="txtConfirmPassword" name="txtConfirmPassword" class="form-control"
+                 [(ngModel)]="user.confirmPassword" #txtConfirmPassword="ngModel" required>
+          <div *ngIf="txtConfirmPassword.invalid && (txtConfirmPassword.dirty ||txtConfirmPassword.touched)">
+            <small *ngIf="txtConfirmPassword.errors['required']" class="text-danger">Email required</small>
+          </div>
+        </div>-->
+        <button [disabled]="registrationForm.invalid" class="btn btn-primary" name="btnRegister"
+        id="btnRegister" (click)="btnRegister_click(user)">Register
+        </button>
+      </form>
+    </div>
+    <div class="card-footer">
+    </div>
+  </div>
+</div>

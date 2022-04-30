@@ -1,0 +1,17 @@
+<button id="btnCapturePhoto" (click)="btnCapturePhoto_click()">Capture Photo
+</button>
+<br>
+<button id="btnCapturePhotoEdit" (click)="btnCapturePhotoEdit_click()" >Capture Editable Photo
+</button>
+<br>
+<button id="btnLoadFromLibrary" (click)="btnLoadFromLibrary_click()" >Load from Photo Library
+</button>
+<br>
+<img id="imgSnap" name="imgSnap" src='/assets/img/todo.jpg' width="100%"  alt="Photo loads here">
+
+<Div class="container-fluid">
+  <Div class="col-10">
+    <h4 class="ms-1">Welcome to todo list {{user.firstName}}</h4>
+    <img class="ms-5" [src] ="ImagePath" style="width: 160px;height: 140px;">
+  </Div>
+</Div>
